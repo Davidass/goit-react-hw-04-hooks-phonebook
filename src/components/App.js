@@ -21,7 +21,9 @@ const initialContacts = [
 
 function App() {
   const [contacts, setContacts] = useState(() => {
-    return JSON.parse(window.localStorage.getItem('contacts')) ?? [];
+    return (
+      JSON.parse(window.localStorage.getItem('contacts')) ?? [initialContacts]
+    );
   });
 
   useEffect(() => {
@@ -35,10 +37,7 @@ function App() {
   };
 
   const isExistContact = name => {
-    if (contacts.some(contact => contact.name === name)) {
-      alert(`${name} Contact is already exist`);
-      return;
-    }
+    return contacts.some(contact => contact.name === name);
   };
 
   const handleDeleteContact = contactId => {
