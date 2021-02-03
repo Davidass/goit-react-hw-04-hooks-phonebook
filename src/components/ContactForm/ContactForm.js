@@ -82,8 +82,8 @@ function ContactForm({ handelAddContact, isExistContact }) {
 }
 
 ContactForm.propTypes = {
-  onCheckContact: PropTypes.func.isRequired,
-  onAdd: PropTypes.func.isRequired,
+  isExistContact: PropTypes.func.isRequired,
+  handelAddContact: PropTypes.func.isRequired,
 };
 
 export default ContactForm;

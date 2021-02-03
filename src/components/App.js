@@ -22,7 +22,9 @@ const initialContacts = [
 function App() {
   const [contacts, setContacts] = useState(() => {
     return (
-      JSON.parse(window.localStorage.getItem('contacts')) ?? [initialContacts]
+      JSON.parse(window.localStorage.getItem('contacts')) ?? [
+        ...initialContacts,
+      ]
     );
   });
 
@@ -60,7 +62,10 @@ function App() {
   return (
     <Container>
       <Section title="Phonebook">
-        <ContactForm onAdd={handelAddContact} onCheckContact={isExistContact} />
+        <ContactForm
+          handelAddContact={handelAddContact}
+          isExistContact={isExistContact}
+        />
       </Section>
       <Section title="Contacts">
         {contacts.length > 1 && (
