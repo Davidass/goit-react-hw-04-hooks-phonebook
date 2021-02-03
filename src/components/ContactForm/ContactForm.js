@@ -36,6 +36,8 @@ function ContactForm({ handelAddContact, isExistContact }) {
     if (isExistContact(name)) {
       return toast.error(`${validateForm} Contact already exists`);
     }
+    console.log(validateForm);
+
     if (!validateForm) {
       return toast.error('Please enter contact name');
     }
